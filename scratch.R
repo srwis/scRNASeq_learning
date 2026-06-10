@@ -104,3 +104,40 @@ filtered_seurat_list <- map(this, function(obj) {
 })
 
 #and then merge everything
+
+combined_atlas <- merge(
+  x = filtered_seurat_list[[1]], 
+  y = filtered_seurat_list[-1], 
+  add.cell.ids = names(filtered_seurat_list),
+  project = "Organ_Specific_CD_Atlas"
+)
+
+normed_atlas <- NormalizeData(combined_atlas)
+
+
+normed_atlas <- FindVariableFeatures(normed_atlas, selection.method = "vst", nfeatures = 2000)
+
+# Identify the 10 most highly variable genes
+top10 <- head(VariableFeatures(normed_atlas), 10)
+
+# plot variable features with and without labels
+plot1 <- VariableFeaturePlot(normed_atlas)
+plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+plot1 
+plot2
+
+
+normed_atlas <- ScaleData(normed_atlas)
+
+# 4. Dimensionality Reduction (PCA)
+normed_atlas <- RunPCA(normed_atlas)
+
+
+VizDimLoadings(normed_atlas, dims = 1:2, reduction = "pca")
+
+
+DimHeatmap(normed_atlas, dims = 1, cells = 500, balanced = TRUE)
+#thinking I want to go back and keep all compartments separate. 
+#TODO: redo but separate compartments
+#TODO: generate quarto report with parameters for each compartment 
+
