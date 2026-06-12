@@ -1,0 +1,114 @@
+---
+title: "Learning Single Cell RNASeq with Seurat: Part 1"
+description: "Learning about the single cell RNASeq workflow using the Seurat package and Crohn's Disease dat from the Broad Institute Single Cell Portal"
+author: "Sadie Wisotsky"
+date: "6/12/2026"
+categories:
+  - RNASeq
+  - scRNASeq
+  - analysis
+  - R
+  - Seurat
+format: html
+---
+
+```{r}
+library(Seurat)
+library(dplyr)
+library(ggplot2)
+library(here)
+```
+
+# Part 1: Basic workflow on Colon Stromal data
+
+I wanted to learn about single cell RNASeq and the Seurat package so I have chosen a data set that contains scRNASeq data from multiple tissue sites and compartments. This tissue has already been analyzed in this paper but I am hoping to use that as a check and as way to learn why they chose specific parameters and workflows. 
+
+For this first part, I will be following the basic workflow laid out in the Seurat tutorial for the Colon Stromal data. Further parts will expand out to the other 5 data sets and comparisons between them. 
+
+## Step 1: Retrieve the data
+
+I downloaded the data from the Broad Institute Single Cell portal [here](https://singlecell.broadinstitute.org/single_cell/study/SCP1884/human-cd-atlas-study-between-colon-and-terminal-ileum#study-download). 
+
+There are 6 main data subsets for the expression data. Samples from the colon and the ileum and then broken down by compartment by stromal, epithelial, and immune cells. For this first post, I will be focusing on the colon stromal data.
+
+I wrote a function to create a custom Seurat object which will make it easier and more repeatable to read in the data for all 6 subsets.
+
+
+```{r}
+create_seurat_obj <- function(path) {
+   matrix_path <- list.files(path, ".*raw.mtx", full.names = TRUE)
+   barcodes_path <- list.files(path, ".*.barcodes.tsv", full.names = TRUE)
+   features_path <-  list.files(path, ".*.features.tsv", full.names = TRUE)
+  
+   sample_name <- matrix_path |> basename()  |> substr(1,6)
+
+   counts_matrix <- ReadMtx(
+     mtx = matrix_path,
+     cells = barcodes_path,
+     features = features_path,
+     cell.column = 1,     # Usually barcodes are in the first column
+     feature.column = 2   # Change to 1 if your gene file only has 1 column (IDs instead of Symbols)
+   )
+  # Create the Seurat object
+   obj <- CreateSeuratObject(counts = counts_matrix, project = sample_name)
+  
+  # Tag with custom metadata
+   obj$Tissue <- sample_name
+  
+   return(obj)
+}
+```
+
+I then create the Seurat object and look at what it is:
+```{r}
+CO_STR <- create_seurat_obj(here("./data/SCP1884/expression/62a0c9f523a28233e1c9b06b/"))
+CO_STR
+glimpse(CO_STR)
+```
+
+Can see we have 39433 samples and 28663 features. Seurat as of v5.0 allows you to store different assays in layers. Here we can see that our only layer for now is counts and our assay is RNA. I probably won't dive deeper into this in this part but there is a [vignette here](https://satijalab.org/seurat/articles/seurat5_essential_commands) for those interested. 
+
+```{r}
+Layers(CO_STR)
+```
+
+## Step 2: QC
+
+the first part of pre-processing the data is quality control. I will be following the guidelines outlined in the tutorial for now. Starting with calculating the percentage of mitochondrial (mt) contamination; a high value here is indictive of dying or low quality cells that we want to exclude from our analysis. 
+
+```{r}
+CO_STR[["percent.mt"]] <- PercentageFeatureSet(CO_STR, pattern = "^MT-")
+```
+
+I peak at the first 5.
+```{r}
+# Show QC metrics for the first 5 cells
+head(CO_STR@meta.data, 5)
+```
+
+Then it is time to graph the metrics and visually check if our standard QC filters are appropriate:
+
+```{r}
+# Visualize QC metrics as a violin plot
+VlnPlot(CO_STR, features = c("nCount_RNA"), group.by="orig.ident")
+```
+
+here's where I realize that I am doing this across multiple samples where the tutorial is across a single sample. For me, it is hard to see where the cutoff for number of features should be based on this so let's try to visualize it another way.
+
+```{r}
+CO_STR@meta.data %>% 
+    ggplot(aes(color=orig.ident, x=nCount_RNA, fill= orig.ident)) + 
+    geom_density(alpha = 0.2) + 
+    theme_classic() +
+    scale_x_log10() + 
+    geom_vline(xintercept = 450,color="red",linetype="dotted")+ 
+    geom_vline(xintercept = 3500,color="red",linetype="dotted")+ 
+    geom_vline(xintercept = 15000,color="red",linetype="dotted")
+
+```
+
+
+
+```{r}
+
+```

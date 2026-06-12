@@ -141,3 +141,105 @@ DimHeatmap(normed_atlas, dims = 1, cells = 500, balanced = TRUE)
 #TODO: redo but separate compartments
 #TODO: generate quarto report with parameters for each compartment 
 
+
+processed_list <- map(filtered_seurat_list, function(obj) {
+  obj <- NormalizeData(obj)
+  obj <- FindVariableFeatures(obj, selection.method = "vst", nfeatures = 2000)
+  return(obj)
+})
+library(ggplot2)
+plot_list <- map(processed_list, function(obj) {
+  
+  sample_name <- obj$Tissue[[1]] 
+
+  # Identify the top 10 most variable genes in this specific compartment
+  top10 <- head(VariableFeatures(obj), 10)
+  
+  # Plot variable features with and without labels
+  plot1 <- VariableFeaturePlot(obj) + 
+           ggtitle(paste("Variable Features:", sample_name))
+  
+  plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+  
+  return(plot2)
+})
+
+
+# Apply Scaling, PCA, Clustering, and UMAP to each compartment independently
+fully_analyzed_list <- map(processed_list, function(obj) {
+  
+  # --- PHASE 3: SCALING AND PCA ---
+  # The ScaleData() function shifts the expression of each gene, so that the mean expression across cells is 0[cite: 198].
+  # It also scales the expression of each gene, so that the variance across cells is 1[cite: 198].
+  obj <- ScaleData(obj)
+  
+  # We perform linear dimensional reduction by running RunPCA()[cite: 206]. 
+  # By default, only the previously determined variable features are used as input[cite: 206].
+  obj <- RunPCA(obj)
+  
+  # --- PHASE 4: CLUSTERING & VISUALIZATION ---
+  # We embed cells in a graph structure, building a K-nearest neighbor (KNN) graph[cite: 233, 234].
+  # This step is performed using the FindNeighbors() function, and takes as input the previously defined dimensionality of the dataset[cite: 235]. 
+  # (Note: We use 1:10 as a standard baseline, but ideally you would check an ElbowPlot for each object first)
+  obj <- FindNeighbors(obj, dims = 1:10)
+  
+  # The FindClusters() function implements this procedure, and contains a resolution parameter that sets the 'granularity' of the downstream clustering[cite: 237].
+  # Increased values lead to a greater number of clusters[cite: 237].
+  obj <- FindClusters(obj, resolution = 0.5)
+  
+  # We run non-linear dimensional reduction techniques like UMAP to visualize and explore these datasets[cite: 240, 245].
+  obj <- RunUMAP(obj, dims = 1:10)
+  
+  return(obj)
+})
+
+
+DimPlot(fully_analyzed_list[[1]], reduction = "umap", label = TRUE) + 
+  ggtitle("Colon Stroma Compartment")
+
+library(Seurat)
+library(tidyverse)
+
+# 1. Split the Colon Stromal object into a list of objects based on patient identity
+# (Assuming your active identities are set to the patient IDs, or use split.by = "orig.ident")
+stromal_list <- SplitObject(colon_stromal, split.by = "ident")
+
+# 2. Define custom thresholds ONLY for the tricky patients.
+# You don't need to type out all 30 patients if most of them are normal!
+patient_thresholds <- list(
+  "I124246" = list(min_feat = 500, max_feat = 6000, max_count = 25000, max_mt = 8),
+  "N104689" = list(min_feat = 500, max_feat = 5500, max_count = 20000, max_mt = 10),
+  "H106265" = list(min_feat = 200, max_feat = 2000, max_count = 8000,  max_mt = 5)
+)
+
+# 3. Define a safe "default" baseline for all the other patients who behave normally
+default_thresh <- list(min_feat = 200, max_feat = 3000, max_count = 12000, max_mt = 5)
+
+# 4. Apply the tailored filters using imap
+filtered_stromal_list <- imap(stromal_list, function(obj, patient_id) {
+  
+  # Fetch the custom threshold for this patient, OR use the default if not listed
+  thresh <- patient_thresholds[[patient_id]]
+  if (is.null(thresh)) {
+    thresh <- default_thresh
+  }
+  
+  # Calculate MT% if you haven't already
+  obj[["percent.mt"]] <- PercentageFeatureSet(obj, pattern = "^MT-")
+  
+  # Apply the strict, tailored filtering
+  obj <- subset(obj, 
+    subset = nFeature_RNA > thresh$min_feat & 
+             nFeature_RNA < thresh$max_feat & 
+             nCount_RNA < thresh$max_count &
+             percent.mt < thresh$max_mt
+  )
+  
+  return(obj)
+})
+
+# 5. Merge the pristine patient data back into a single Colon Stromal object
+colon_stromal_clean <- merge(
+  x = filtered_stromal_list[[1]], 
+  y = filtered_stromal_list[-1]
+)
