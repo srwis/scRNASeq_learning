@@ -109,6 +109,162 @@ CO_STR@meta.data %>%
 
 
 
-```{r}
+## Step 3: Patient-Specific QC Filtering
 
+Looking at the density plots, it's clear that cells from different patients have different distributions of RNA count and feature count. Using a single global threshold might discard high-quality cells from some samples while keeping low-quality cells from others. 
+
+To address this, I will split the Colon Stromal object by patient (`orig.ident`), and apply customized thresholds for patients that show outlier characteristics (as identified in my exploratory work), while using a robust default threshold for the others.
+
+The outliers and their thresholds:
+- **I124246**: High overall features/counts. Threshold: `min_feat = 500`, `max_feat = 6000`, `max_count = 25000`, `max_mt = 8`
+- **N104689**: High overall features/counts. Threshold: `min_feat = 500`, `max_feat = 5500`, `max_count = 20000`, `max_mt = 10`
+- **H106265**: Low overall features/counts. Threshold: `min_feat = 200`, `max_feat = 2000`, `max_count = 8000`, `max_mt = 5`
+- **Default (all other patients)**: `min_feat = 200`, `max_feat = 3000`, `max_count = 12000`, `max_mt = 5`
+
+```{r}
+library(purrr)
+
+# Split by patient identity
+stromal_list <- SplitObject(CO_STR, split.by = "orig.ident")
+
+# Define tailored patient-specific thresholds
+patient_thresholds <- list(
+  "I124246" = list(min_feat = 500, max_feat = 6000, max_count = 25000, max_mt = 8),
+  "N104689" = list(min_feat = 500, max_feat = 5500, max_count = 20000, max_mt = 10),
+  "H106265" = list(min_feat = 200, max_feat = 2000, max_count = 8000,  max_mt = 5),
+  # Additional tricky patients identified from summary statistics
+  "I121881" = list(min_feat = 200, max_feat = 6000, max_count = 28000, max_mt = 12),
+  "I117351" = list(min_feat = 200, max_feat = 6000, max_count = 31000, max_mt = 15),
+  "N107306" = list(min_feat = 200, max_feat = 6000, max_count = 30000, max_mt = 15),
+  "N154787" = list(min_feat = 200, max_feat = 6000, max_count = 20000, max_mt = 12),
+  "N128208" = list(min_feat = 200, max_feat = 6000, max_count = 28000, max_mt = 8),
+  "N128624" = list(min_feat = 200, max_feat = 6000, max_count = 25000, max_mt = 8),
+  "N105446" = list(min_feat = 500, max_feat = 6000, max_count = 25000, max_mt = 15)
+)
+default_thresh <- list(min_feat = 200, max_feat = 3000, max_count = 12000, max_mt = 5)
+
+# Filter each patient individually
+filtered_stromal_list <- imap(stromal_list, function(obj, patient_id) {
+  # Fetch the custom threshold for this patient, OR use the default if not listed
+  thresh <- patient_thresholds[[patient_id]]
+  if (is.null(thresh)) {
+    thresh <- default_thresh
+  }
+  
+  # Calculate MT%
+  obj[["percent.mt"]] <- PercentageFeatureSet(obj, pattern = "^MT-")
+  
+  # Identify cells passing thresholds
+  keep_cells <- colnames(obj)[
+    obj$nFeature_RNA > thresh$min_feat & 
+    obj$nFeature_RNA < thresh$max_feat & 
+    obj$nCount_RNA < thresh$max_count &
+    obj$percent.mt < thresh$max_mt
+  ]
+  
+  # If no cells pass, return NULL to avoid subsetting error
+  if (length(keep_cells) == 0) {
+    warning(paste("Patient", patient_id, "has no cells passing thresholds and will be excluded."))
+    return(NULL)
+  }
+  
+  # Apply tailored filtering
+  obj <- subset(obj, cells = keep_cells)
+  return(obj)
+})
+
+# Remove NULL elements
+filtered_stromal_list <- compact(filtered_stromal_list)
+
+# Merge back into a single clean Seurat object
+CO_STR_clean <- merge(
+  x = filtered_stromal_list[[1]], 
+  y = filtered_stromal_list[-1],
+  project = "CO_STR_Clean"
+)
+
+# Print comparison of cell counts
+cat("Original cells:", ncol(CO_STR), "\n")
+cat("Filtered cells:", ncol(CO_STR_clean), "\n")
 ```
+
+## Step 4: Normalization & Variable Feature Selection
+
+Next, I normalize the counts to control for sequencing depth and find the 2,000 most highly variable genes across cells, which will be used for linear dimensionality reduction (PCA).
+
+```{r}
+# Standard log-normalization
+CO_STR_clean <- NormalizeData(CO_STR_clean, normalization.method = "LogNormalize", scale.factor = 10000)
+
+# Find variable features
+CO_STR_clean <- FindVariableFeatures(CO_STR_clean, selection.method = "vst", nfeatures = 2000)
+
+# Identify top 10 variable features and plot
+top10 <- head(VariableFeatures(CO_STR_clean), 10)
+plot1 <- VariableFeaturePlot(CO_STR_clean)
+plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+plot2
+```
+
+## Step 5: Scaling & PCA
+
+I scale the data so that each gene has a mean expression of 0 and a variance of 1 across all cells. This ensures that highly expressed genes do not dominate the PCA. Then, I run PCA on the variable features.
+
+```{r}
+CO_STR_clean <- ScaleData(CO_STR_clean)
+CO_STR_clean <- RunPCA(CO_STR_clean, npcs = 30, verbose = FALSE)
+
+# Visualize PCA load and elbow plot
+ElbowPlot(CO_STR_clean, ndims = 30)
+```
+
+## Step 6: Batch Integration using Harmony
+
+Since our cells come from 38 different patient samples, we are very likely to observe patient-specific clusters due to technical variations or individual genetic baselines (batch effects). To align equivalent cell populations across patients, I will integrate the datasets using the **Harmony** integration method.
+
+In Seurat v5, this is streamlined using the `IntegrateLayers` function.
+
+```{r}
+library(harmony)
+
+# Run Harmony Integration
+CO_STR_clean <- IntegrateLayers(
+  object = CO_STR_clean, 
+  method = HarmonyIntegration,
+  orig.reduction = "pca", 
+  new.reduction = "harmony",
+  verbose = FALSE
+)
+```
+
+## Step 7: Clustering & UMAP Visualization
+
+With the integrated representation (`harmony` reduction) ready, I will build the Shared Nearest Neighbor (SNN) graph, find clusters, and run UMAP for visualization. I'll use 20 dimensions of the integrated space.
+
+```{r}
+# Build SNN Graph and Find Clusters on integrated space
+CO_STR_clean <- FindNeighbors(CO_STR_clean, reduction = "harmony", dims = 1:20)
+CO_STR_clean <- FindClusters(CO_STR_clean, resolution = 0.5, verbose = FALSE)
+
+# Run UMAP
+CO_STR_clean <- RunUMAP(CO_STR_clean, reduction = "harmony", dims = 1:20)
+```
+
+Let's visualize the results! I will plot the cells colored by cluster and patient identity side-by-side using the `patchwork` library. This allows us to verify if Harmony successfully mixed the patient samples while preserving biological differences.
+
+```{r}
+library(patchwork)
+
+p1 <- DimPlot(CO_STR_clean, reduction = "umap", group.by = "seurat_clusters", label = TRUE) + 
+  ggtitle("Integrated UMAP: Clusters") + 
+  theme_minimal()
+
+p2 <- DimPlot(CO_STR_clean, reduction = "umap", group.by = "orig.ident", label = FALSE) + 
+  ggtitle("Integrated UMAP: Patients") + 
+  theme_minimal() +
+  theme(legend.position = "none") # Hide large patient legend
+
+p1 + p2
+```
+
+We can see that cells from different patients are well-mixed within the same clusters, indicating that the Harmony integration successfully corrected for batch effects! In the next parts, we will extend this pipeline to the other tissue compartments (epithelial and immune) and dive deeper into biological characterization and marker identification.

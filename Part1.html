@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Part1_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Part1_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Part1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Part1_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Part1_files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Part1_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Part1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Part1_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Part1_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -131,15 +131,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Seurat' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: SeuratObject</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'SeuratObject' was built under R version 4.5.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: sp</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>'SeuratObject' was built under R 4.5.2 but the current version is
-4.5.3; it is recomended that you reinstall 'SeuratObject' as the ABI
-for R may have changed</code></pre>
+<pre><code>Warning: package 'sp' was built under R version 4.5.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -150,7 +154,10 @@ Attaching package: 'SeuratObject'</code></pre>
 
     intersect, t</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.5.3</code></pre>
+</div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -165,10 +172,16 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /Users/sadie/Documents/scRNASeq_learning</code></pre>
+<pre><code>Warning: package 'ggplot2' was built under R version 4.5.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'here' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at D:/R/scRNASeq_learning</code></pre>
 </div>
 </div>
 <section id="part-1-basic-workflow-on-colon-stromal-data" class="level1">
@@ -181,44 +194,44 @@ Attaching package: 'dplyr'</code></pre>
 <p>There are 6 main data subsets for the expression data. Samples from the colon and the ileum and then broken down by compartment by stromal, epithelial, and immune cells. For this first post, I will be focusing on the colon stromal data.</p>
 <p>I wrote a function to create a custom Seurat object which will make it easier and more repeatable to read in the data for all 6 subsets.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>create_seurat_obj <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   matrix_path <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="st">".*raw.mtx"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   barcodes_path <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="st">".*.barcodes.tsv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>   features_path <span class="ot">&lt;-</span>  <span class="fu">list.files</span>(path, <span class="st">".*.features.tsv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>   sample_name <span class="ot">&lt;-</span> matrix_path <span class="sc">|&gt;</span> <span class="fu">basename</span>()  <span class="sc">|&gt;</span> <span class="fu">substr</span>(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>   counts_matrix <span class="ot">&lt;-</span> <span class="fu">ReadMtx</span>(</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">mtx =</span> matrix_path,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">cells =</span> barcodes_path,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">features =</span> features_path,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">cell.column =</span> <span class="dv">1</span>,     <span class="co"># Usually barcodes are in the first column</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">feature.column =</span> <span class="dv">2</span>   <span class="co"># Change to 1 if your gene file only has 1 column (IDs instead of Symbols)</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create the Seurat object</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>   obj <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(<span class="at">counts =</span> counts_matrix, <span class="at">project =</span> sample_name)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tag with custom metadata</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>   obj<span class="sc">$</span>Tissue <span class="ot">&lt;-</span> sample_name</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(obj)</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>create_seurat_obj <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>   matrix_path <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="st">".*raw.mtx"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>   barcodes_path <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path, <span class="st">".*.barcodes.tsv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>   features_path <span class="ot">&lt;-</span>  <span class="fu">list.files</span>(path, <span class="st">".*.features.tsv"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>   sample_name <span class="ot">&lt;-</span> matrix_path <span class="sc">|&gt;</span> <span class="fu">basename</span>()  <span class="sc">|&gt;</span> <span class="fu">substr</span>(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>   counts_matrix <span class="ot">&lt;-</span> <span class="fu">ReadMtx</span>(</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">mtx =</span> matrix_path,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">cells =</span> barcodes_path,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">features =</span> features_path,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">cell.column =</span> <span class="dv">1</span>,     <span class="co"># Usually barcodes are in the first column</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">feature.column =</span> <span class="dv">2</span>   <span class="co"># Change to 1 if your gene file only has 1 column (IDs instead of Symbols)</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create the Seurat object</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>   obj <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(<span class="at">counts =</span> counts_matrix, <span class="at">project =</span> sample_name)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tag with custom metadata</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>   obj<span class="sc">$</span>Tissue <span class="ot">&lt;-</span> sample_name</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(obj)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>I then create the Seurat object and look at what it is:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>CO_STR <span class="ot">&lt;-</span> <span class="fu">create_seurat_obj</span>(<span class="fu">here</span>(<span class="st">"./data/SCP1884/expression/62a0c9f523a28233e1c9b06b/"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>CO_STR <span class="ot">&lt;-</span> <span class="fu">create_seurat_obj</span>(<span class="fu">here</span>(<span class="st">"./data/SCP1884/expression/62a0c9f523a28233e1c9b06b/"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Feature names cannot have underscores ('_'), replacing with dashes
 ('-')</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>CO_STR</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>CO_STR</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>An object of class Seurat 
 28663 features across 39433 samples within 1 assay 
 Active assay: RNA (28663 features, 0 variable features)
  1 layer present: counts</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(CO_STR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(CO_STR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Formal class 'Seurat' [package "SeuratObject"] with 13 slots
   ..@ assays      :List of 1
@@ -245,7 +258,7 @@ Active assay: RNA (28663 features, 0 variable features)
 </div>
 <p>Can see we have 39433 samples and 28663 features. Seurat as of v5.0 allows you to store different assays in layers. Here we can see that our only layer for now is counts and our assay is RNA. I probably won’t dive deeper into this in this part but there is a <a href="https://satijalab.org/seurat/articles/seurat5_essential_commands">vignette here</a> for those interested.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Layers</span>(CO_STR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Layers</span>(CO_STR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "counts"</code></pre>
 </div>
@@ -255,12 +268,12 @@ Active assay: RNA (28663 features, 0 variable features)
 <h2 class="anchored" data-anchor-id="step-2-qc">Step 2: QC</h2>
 <p>the first part of pre-processing the data is quality control. I will be following the guidelines outlined in the tutorial for now. Starting with calculating the percentage of mitochondrial (mt) contamination; a high value here is indictive of dying or low quality cells that we want to exclude from our analysis.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>CO_STR[[<span class="st">"percent.mt"</span>]] <span class="ot">&lt;-</span> <span class="fu">PercentageFeatureSet</span>(CO_STR, <span class="at">pattern =</span> <span class="st">"^MT-"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>CO_STR[[<span class="st">"percent.mt"</span>]] <span class="ot">&lt;-</span> <span class="fu">PercentageFeatureSet</span>(CO_STR, <span class="at">pattern =</span> <span class="st">"^MT-"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>I peak at the first 5.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show QC metrics for the first 5 cells</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(CO_STR<span class="sc">@</span>meta.data, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show QC metrics for the first 5 cells</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(CO_STR<span class="sc">@</span>meta.data, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           orig.ident nCount_RNA nFeature_RNA Tissue percent.mt
 N105446_L-GTGTGGCTCCGTCAAA    N105446      19014         5135 CO_STR   9.151152
@@ -272,8 +285,8 @@ N105446_L-TCCATGCGTTCGTTCC    N105446      17548         4690 CO_STR   8.086392<
 </div>
 <p>Then it is time to graph the metrics and visually check if our standard QC filters are appropriate:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize QC metrics as a violin plot</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">VlnPlot</span>(CO_STR, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">"nCount_RNA"</span>), <span class="at">group.by=</span><span class="st">"orig.ident"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize QC metrics as a violin plot</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">VlnPlot</span>(CO_STR, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">"nCount_RNA"</span>), <span class="at">group.by=</span><span class="st">"orig.ident"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Default search for "data" layer in "RNA" assay yielded no results;
 utilizing "counts" layer instead.</code></pre>
@@ -288,12 +301,14 @@ utilizing "counts" layer instead.</code></pre>
 </div>
 <p>here’s where I realize that I am doing this across multiple samples where the tutorial is across a single sample. For me, it is hard to see where the cutoff for number of features should be based on this so let’s try to visualize it another way.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>CO_STR<span class="sc">@</span>meta.data <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color=</span>orig.ident, <span class="at">x=</span>nCount_RNA, <span class="at">fill=</span> orig.ident)) <span class="sc">+</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">650</span>,<span class="at">color=</span><span class="st">"red"</span>,<span class="at">linetype=</span><span class="st">"dotted"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>CO_STR<span class="sc">@</span>meta.data <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color=</span>orig.ident, <span class="at">x=</span>nCount_RNA, <span class="at">fill=</span> orig.ident)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">450</span>,<span class="at">color=</span><span class="st">"red"</span>,<span class="at">linetype=</span><span class="st">"dotted"</span>)<span class="sc">+</span> </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">3500</span>,<span class="at">color=</span><span class="st">"red"</span>,<span class="at">linetype=</span><span class="st">"dotted"</span>)<span class="sc">+</span> </span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">15000</span>,<span class="at">color=</span><span class="st">"red"</span>,<span class="at">linetype=</span><span class="st">"dotted"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -302,6 +317,747 @@ utilizing "counts" layer instead.</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="step-3-patient-specific-qc-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-patient-specific-qc-filtering">Step 3: Patient-Specific QC Filtering</h2>
+<p>Looking at the density plots, it’s clear that cells from different patients have different distributions of RNA count and feature count. Using a single global threshold might discard high-quality cells from some samples while keeping low-quality cells from others.</p>
+<p>To address this, I will split the Colon Stromal object by patient (<code>orig.ident</code>), and apply customized thresholds for patients that show outlier characteristics (as identified in my exploratory work), while using a robust default threshold for the others.</p>
+<p>The outliers and their thresholds: - <strong>I124246</strong>: High overall features/counts. Threshold: <code>min_feat = 500</code>, <code>max_feat = 6000</code>, <code>max_count = 25000</code>, <code>max_mt = 8</code> - <strong>N104689</strong>: High overall features/counts. Threshold: <code>min_feat = 500</code>, <code>max_feat = 5500</code>, <code>max_count = 20000</code>, <code>max_mt = 10</code> - <strong>H106265</strong>: Low overall features/counts. Threshold: <code>min_feat = 200</code>, <code>max_feat = 2000</code>, <code>max_count = 8000</code>, <code>max_mt = 5</code> - <strong>Default (all other patients)</strong>: <code>min_feat = 200</code>, <code>max_feat = 3000</code>, <code>max_count = 12000</code>, <code>max_mt = 5</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.5.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split by patient identity</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>stromal_list <span class="ot">&lt;-</span> <span class="fu">SplitObject</span>(CO_STR, <span class="at">split.by =</span> <span class="st">"orig.ident"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define tailored patient-specific thresholds</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>patient_thresholds <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I124246"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">500</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">25000</span>, <span class="at">max_mt =</span> <span class="dv">8</span>),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N104689"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">500</span>, <span class="at">max_feat =</span> <span class="dv">5500</span>, <span class="at">max_count =</span> <span class="dv">20000</span>, <span class="at">max_mt =</span> <span class="dv">10</span>),</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"H106265"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">2000</span>, <span class="at">max_count =</span> <span class="dv">8000</span>,  <span class="at">max_mt =</span> <span class="dv">5</span>),</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Additional tricky patients identified from summary statistics</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I121881"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">28000</span>, <span class="at">max_mt =</span> <span class="dv">12</span>),</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"I117351"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">31000</span>, <span class="at">max_mt =</span> <span class="dv">15</span>),</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N107306"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">30000</span>, <span class="at">max_mt =</span> <span class="dv">15</span>),</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N154787"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">20000</span>, <span class="at">max_mt =</span> <span class="dv">12</span>),</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N128208"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">28000</span>, <span class="at">max_mt =</span> <span class="dv">8</span>),</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N128624"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">25000</span>, <span class="at">max_mt =</span> <span class="dv">8</span>),</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"N105446"</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">500</span>, <span class="at">max_feat =</span> <span class="dv">6000</span>, <span class="at">max_count =</span> <span class="dv">25000</span>, <span class="at">max_mt =</span> <span class="dv">15</span>)</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>default_thresh <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">min_feat =</span> <span class="dv">200</span>, <span class="at">max_feat =</span> <span class="dv">3000</span>, <span class="at">max_count =</span> <span class="dv">12000</span>, <span class="at">max_mt =</span> <span class="dv">5</span>)</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter each patient individually</span></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>filtered_stromal_list <span class="ot">&lt;-</span> <span class="fu">imap</span>(stromal_list, <span class="cf">function</span>(obj, patient_id) {</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fetch the custom threshold for this patient, OR use the default if not listed</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  thresh <span class="ot">&lt;-</span> patient_thresholds[[patient_id]]</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(thresh)) {</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    thresh <span class="ot">&lt;-</span> default_thresh</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate MT%</span></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>  obj[[<span class="st">"percent.mt"</span>]] <span class="ot">&lt;-</span> <span class="fu">PercentageFeatureSet</span>(obj, <span class="at">pattern =</span> <span class="st">"^MT-"</span>)</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Identify cells passing thresholds</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>  keep_cells <span class="ot">&lt;-</span> <span class="fu">colnames</span>(obj)[</span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>    obj<span class="sc">$</span>nFeature_RNA <span class="sc">&gt;</span> thresh<span class="sc">$</span>min_feat <span class="sc">&amp;</span> </span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>    obj<span class="sc">$</span>nFeature_RNA <span class="sc">&lt;</span> thresh<span class="sc">$</span>max_feat <span class="sc">&amp;</span> </span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>    obj<span class="sc">$</span>nCount_RNA <span class="sc">&lt;</span> thresh<span class="sc">$</span>max_count <span class="sc">&amp;</span></span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>    obj<span class="sc">$</span>percent.mt <span class="sc">&lt;</span> thresh<span class="sc">$</span>max_mt</span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If no cells pass, return NULL to avoid subsetting error</span></span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(keep_cells) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="fu">paste</span>(<span class="st">"Patient"</span>, patient_id, <span class="st">"has no cells passing thresholds and will be excluded."</span>))</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Apply tailored filtering</span></span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>  obj <span class="ot">&lt;-</span> <span class="fu">subset</span>(obj, <span class="at">cells =</span> keep_cells)</span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(obj)</span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in .f(.x[[i]], .y[[i]], ...): Patient N117351 has no cells passing
+thresholds and will be excluded.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in .f(.x[[i]], .y[[i]], ...): Patient N178961 has no cells passing
+thresholds and will be excluded.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove NULL elements</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>filtered_stromal_list <span class="ot">&lt;-</span> <span class="fu">compact</span>(filtered_stromal_list)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge back into a single clean Seurat object</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">merge</span>(</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> filtered_stromal_list[[<span class="dv">1</span>]], </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> filtered_stromal_list[<span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">project =</span> <span class="st">"CO_STR_Clean"</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print comparison of cell counts</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Original cells:"</span>, <span class="fu">ncol</span>(CO_STR), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Original cells: 39433 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Filtered cells:"</span>, <span class="fu">ncol</span>(CO_STR_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Filtered cells: 24808 </code></pre>
+</div>
+</div>
+</section>
+<section id="step-4-normalization-variable-feature-selection" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-normalization-variable-feature-selection">Step 4: Normalization &amp; Variable Feature Selection</h2>
+<p>Next, I normalize the counts to control for sequencing depth and find the 2,000 most highly variable genes across cells, which will be used for linear dimensionality reduction (PCA).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard log-normalization</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(CO_STR_clean, <span class="at">normalization.method =</span> <span class="st">"LogNormalize"</span>, <span class="at">scale.factor =</span> <span class="dv">10000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.6</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.8</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.9</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.10</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.11</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.12</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.13</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.16</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.18</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.19</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.20</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.21</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.22</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.23</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.24</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.25</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.26</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.27</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.28</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.29</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.30</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.31</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.32</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.33</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.34</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.35</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Normalizing layer: counts.36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find variable features</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">FindVariableFeatures</span>(CO_STR_clean, <span class="at">selection.method =</span> <span class="st">"vst"</span>, <span class="at">nfeatures =</span> <span class="dv">2000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -1.552</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.4976</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.2021e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.1222</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.30103</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 5.6189e-15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: at -1.1315</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: radius 0.00030922</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: all data on boundary of neighborhood. make span bigger</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -1.1315</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.017585</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.031008</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: zero-width neighborhood. make span bigger</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.6</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.7</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.8</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.9</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -1.5746</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.31938</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 2.0431e-29</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.031008</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.10</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.11</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.12</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.6766</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.4948</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.093e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.13</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.8718</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.49649</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 3.8716e-15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.2447</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.49914</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.6385e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.22764</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.16</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.3756</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.49861</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 6.3513e-15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.17</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.18</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.4573</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.4967</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.4656e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.19</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.4622</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.32072</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 8.4065e-29</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.20</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.21</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.22</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.1945</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.30103</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 4.6589e-15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.23</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.24</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.3646</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.30103</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 3.6584e-15</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.25</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.4842</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.49738</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.8514e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.26</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.27</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.28</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.29</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -1.5493</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.31886</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 4.6777e-28</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.30</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.8811</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.30103</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.3072e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.31</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.32</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.33</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.3855</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.49904</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 1.2264e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.34</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.35</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: pseudoinverse used at -2.3756</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: neighborhood radius 0.32059</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: reciprocal condition number 7.8717e-28</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric = parametric,
+: There are other near singularities as well. 0.090619</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Finding variable features for layer counts.36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb185"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify top 10 variable features and plot</span></span>
+<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> <span class="fu">head</span>(<span class="fu">VariableFeatures</span>(CO_STR_clean), <span class="dv">10</span>)</span>
+<span id="cb185-3"><a href="#cb185-3" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">VariableFeaturePlot</span>(CO_STR_clean)</span>
+<span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">LabelPoints</span>(<span class="at">plot =</span> plot1, <span class="at">points =</span> top10, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>When using repel, set xnudge and ynudge to 0 for optimal results</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>plot2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in scale_x_log10(): log-10 transformation introduced infinite values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Part1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-scaling-pca" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-scaling-pca">Step 5: Scaling &amp; PCA</h2>
+<p>I scale the data so that each gene has a mean expression of 0 and a variance of 1 across all cells. This ensures that highly expressed genes do not dominate the PCA. Then, I run PCA on the variable features.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">ScaleData</span>(CO_STR_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Centering and scaling data matrix</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">RunPCA</span>(CO_STR_clean, <span class="at">npcs =</span> <span class="dv">30</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-3"><a href="#cb191-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize PCA load and elbow plot</span></span>
+<span id="cb191-4"><a href="#cb191-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ElbowPlot</span>(CO_STR_clean, <span class="at">ndims =</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Part1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-batch-integration-using-harmony" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-batch-integration-using-harmony">Step 6: Batch Integration using Harmony</h2>
+<p>Since our cells come from 38 different patient samples, we are very likely to observe patient-specific clusters due to technical variations or individual genetic baselines (batch effects). To align equivalent cell populations across patients, I will integrate the datasets using the <strong>Harmony</strong> integration method.</p>
+<p>In Seurat v5, this is streamlined using the <code>IntegrateLayers</code> function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(harmony)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'harmony' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Rcpp</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Rcpp' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• This is Harmony2 version 2.0.5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Read the guide: run vignette("quickstart", package="harmony")
+• Get help: Visit the website at &lt;https://korsunskylab.github.io/harmony2/&gt; and
+report issues on &lt;https://github.com/immunogenomics/harmony/issues&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run Harmony Integration</span></span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">IntegrateLayers</span>(</span>
+<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> CO_STR_clean, </span>
+<span id="cb198-4"><a href="#cb198-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> HarmonyIntegration,</span>
+<span id="cb198-5"><a href="#cb198-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">orig.reduction =</span> <span class="st">"pca"</span>, </span>
+<span id="cb198-6"><a href="#cb198-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">new.reduction =</span> <span class="st">"harmony"</span>,</span>
+<span id="cb198-7"><a href="#cb198-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb198-8"><a href="#cb198-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The `features` argument is ignored by `HarmonyIntegration`.
+This message is displayed once per session.</code></pre>
+</div>
+</div>
+</section>
+<section id="step-7-clustering-umap-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-clustering-umap-visualization">Step 7: Clustering &amp; UMAP Visualization</h2>
+<p>With the integrated representation (<code>harmony</code> reduction) ready, I will build the Shared Nearest Neighbor (SNN) graph, find clusters, and run UMAP for visualization. I’ll use 20 dimensions of the integrated space.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build SNN Graph and Find Clusters on integrated space</span></span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">FindNeighbors</span>(CO_STR_clean, <span class="at">reduction =</span> <span class="st">"harmony"</span>, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing nearest neighbor graph</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'future' was built under R version 4.5.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing SNN</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">FindClusters</span>(CO_STR_clean, <span class="at">resolution =</span> <span class="fl">0.5</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run UMAP</span></span>
+<span id="cb204-4"><a href="#cb204-4" aria-hidden="true" tabindex="-1"></a>CO_STR_clean <span class="ot">&lt;-</span> <span class="fu">RunUMAP</span>(CO_STR_clean, <span class="at">reduction =</span> <span class="st">"harmony"</span>, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric
+To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation'
+This message will be shown once per session</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>12:10:57 UMAP embedding parameters a = 0.9922 b = 1.112</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>12:10:57 Read 24808 rows and found 20 numeric columns</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>12:10:57 Using Annoy for neighbor search, n_neighbors = 30</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>12:10:57 Building Annoy index with metric = cosine, n_trees = 50</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>0%   10   20   30   40   50   60   70   80   90   100%</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>[----|----|----|----|----|----|----|----|----|----|</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>**************************************************|
+12:10:58 Writing NN index file to temp file C:\Users\rgnes\AppData\Local\Temp\RtmpOEoowN\file41f436e37fa0
+12:10:58 Searching Annoy index using 1 thread, search_k = 3000
+12:11:03 Annoy recall = 100%
+12:11:03 Commencing smooth kNN distance calibration using 1 thread with target n_neighbors = 30
+12:11:04 Initializing from normalized Laplacian + noise (using RSpectra)
+12:11:05 Commencing optimization for 200 epochs, with 1094230 positive edges
+12:11:05 Using rng type: pcg
+12:11:44 Optimization finished</code></pre>
+</div>
+</div>
+<p>Let’s visualize the results! I will plot the cells colored by cluster and patient identity side-by-side using the <code>patchwork</code> library. This allows us to verify if Harmony successfully mixed the patient samples while preserving biological differences.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb213"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'patchwork' was built under R version 4.5.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb215"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">DimPlot</span>(CO_STR_clean, <span class="at">reduction =</span> <span class="st">"umap"</span>, <span class="at">group.by =</span> <span class="st">"seurat_clusters"</span>, <span class="at">label =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Integrated UMAP: Clusters"</span>) <span class="sc">+</span> </span>
+<span id="cb215-3"><a href="#cb215-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb215-4"><a href="#cb215-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-5"><a href="#cb215-5" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">DimPlot</span>(CO_STR_clean, <span class="at">reduction =</span> <span class="st">"umap"</span>, <span class="at">group.by =</span> <span class="st">"orig.ident"</span>, <span class="at">label =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb215-6"><a href="#cb215-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Integrated UMAP: Patients"</span>) <span class="sc">+</span> </span>
+<span id="cb215-7"><a href="#cb215-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb215-8"><a href="#cb215-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># Hide large patient legend</span></span>
+<span id="cb215-9"><a href="#cb215-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-10"><a href="#cb215-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Part1_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that cells from different patients are well-mixed within the same clusters, indicating that the Harmony integration successfully corrected for batch effects! In the next parts, we will extend this pipeline to the other tissue compartments (epithelial and immune) and dive deeper into biological characterization and marker identification.</p>
 </section>
 </section>
 
